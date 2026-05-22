@@ -3,34 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="St. Aurelius Private Golf Estate - Exklusives Golfresort mit Meisterschaftsanlage und Fine Dining">
     <title>St. Aurelius Private Golf Estate</title>
     <style>
+        :root {
+            --color-dark: #0a110d;
+            --color-darker: #050806;
+            --color-gold: #a38245;
+            --color-text: #e8dfc8;
+            --color-text-secondary: #d1c8b4;
+            --color-text-muted: #8c8577;
+            --color-accent: #121f16;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
         body { 
             margin: 0; 
             font-family: 'Times New Roman', Times, serif; 
-            background-color: #0a110d; 
-            color: #e8dfc8; 
+            background-color: var(--color-dark); 
+            color: var(--color-text); 
         }
+
         header { 
-            background-color: #050806; 
+            background-color: var(--color-darker); 
             padding: 40px 20px; 
             text-align: center; 
-            border-bottom: 2px solid #a38245; 
+            border-bottom: 2px solid var(--color-gold); 
         }
+
         h1 { 
             margin: 0; 
             font-size: 3em; 
-            color: #a38245; 
+            color: var(--color-gold); 
             letter-spacing: 5px; 
             text-transform: uppercase; 
         }
+
         h2 { 
-            color: #a38245; 
+            color: var(--color-gold); 
             letter-spacing: 2px; 
             font-size: 2.2em; 
             margin-bottom: 25px; 
             text-align: center;
         }
+
+        h3 {
+            color: var(--color-text);
+            margin-top: 0;
+            font-size: 1.5em;
+            text-align: center;
+        }
+
         .subtitle { 
             font-size: 1.2em; 
             letter-spacing: 3px; 
@@ -38,118 +64,134 @@
             color: #c4b594; 
             text-transform: uppercase;
         }
+
         p { 
             line-height: 1.8; 
             font-family: 'Arial', sans-serif; 
             font-size: 1.1em; 
-            color: #d1c8b4;
+            color: var(--color-text-secondary);
             text-align: justify; 
         }
+
+        p.date {
+            color: var(--color-gold);
+            font-weight: bold;
+            text-align: center;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        /* Layout Components */
+        main {
+            display: block;
+        }
+
         .hero-container {
             width: 100%;
-            border-bottom: 3px solid #a38245;
+            border-bottom: 3px solid var(--color-gold);
+            overflow: hidden;
         }
+
         .hero { 
             width: 100%; 
             max-height: 700px; 
             object-fit: cover; 
             display: block;
+            cursor: zoom-in;
+            transition: filter 0.3s ease;
         }
+
+        .hero:hover {
+            filter: brightness(1.1);
+        }
+
         .container {
             max-width: 1100px;
             margin: 0 auto;
             padding: 60px 20px;
         }
+
         .section { 
             margin-bottom: 80px;
             display: flex;
             align-items: center;
             gap: 40px;
         }
+
         .section.reverse {
             flex-direction: row-reverse;
         }
+
         .section-text {
             flex: 1;
         }
-        .section-image {
-            flex: 1;
-            border: 2px solid #a38245;
+
+        .section-image,
+        .notice-board-image {
+            border: 2px solid var(--color-gold);
             border-radius: 4px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
-        .section-image img {
+
+        .section-image {
+            flex: 1;
+        }
+
+        .section-image img,
+        .notice-board-image img {
             width: 100%;
             height: auto;
             display: block;
-            transition: transform 0.5s ease;
+            cursor: zoom-in;
+            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), filter 0.3s ease;
         }
-        .section-image img:hover {
+
+        .section-image img:hover,
+        .notice-board-image img:hover {
             transform: scale(1.05);
+            filter: brightness(1.1);
         }
+
         .notice-board {
-            background-color: #121f16;
+            background-color: var(--color-accent);
             padding: 40px;
-            border: 1px solid #a38245;
-            border-left: 6px solid #a38245;
+            border: 1px solid var(--color-gold);
+            border-left: 6px solid var(--color-gold);
             margin-top: 20px;
             box-shadow: 0 10px 20px rgba(0,0,0,0.4);
         }
+
         .notice-board-inner {
             display: flex;
             align-items: center;
             gap: 40px;
         }
+
         .notice-board-text {
             flex: 1;
         }
+
         .notice-board-image {
             flex: 0 0 340px;
-            border: 2px solid #a38245;
-            border-radius: 4px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
-        .notice-board-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.5s ease;
-        }
-        .notice-board-image img:hover {
-            transform: scale(1.05);
-        }
-        .notice-board p.date {
-            color: #a38245;
-            font-weight: bold;
-            text-align: center;
-            font-size: 1.2em;
-            margin-bottom: 10px;
-        }
-        .notice-board h3 {
-            color: #e8dfc8;
-            text-align: center;
-            margin-top: 0;
-            font-size: 1.5em;
-        }
+
         footer { 
-            background-color: #050806; 
+            background-color: var(--color-darker); 
             text-align: center; 
             padding: 40px 20px; 
-            border-top: 1px solid #a38245; 
+            border-top: 1px solid var(--color-gold); 
             font-family: 'Arial', sans-serif; 
             font-size: 0.9em; 
             margin-top: 60px; 
-            color: #8c8577;
+            color: var(--color-text-muted);
         }
+
         footer p {
-            text-align: center;
             margin: 5px 0;
-            color: #8c8577;
         }
-    
-        /* Lightbox / Modal Styles */
+
+        /* Modal Styles */
         .modal {
             display: none; 
             position: fixed; 
@@ -158,98 +200,198 @@
             top: 0; 
             width: 100%; 
             height: 100%; 
-            background-color: rgba(5, 10, 6, 0.95); /* Passend zum dunklen Design */
+            background-color: rgba(5, 10, 6, 0.95);
             cursor: zoom-out;
             backdrop-filter: blur(5px);
+            animation: fadeIn 0.2s ease;
         }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
         .modal-content {
-            margin: auto;
-            display: block;
             max-width: 90vw;
             max-height: 90vh;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            border: 4px double #d4af37;
+            border: 4px double var(--color-gold);
             box-shadow: 0 0 40px rgba(212, 175, 55, 0.4);
             animation: zoomIn 0.3s ease;
         }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
         @keyframes zoomIn {
-            from {transform: translate(-50%, -50%) scale(0.9); opacity: 0;}
-            to {transform: translate(-50%, -50%) scale(1); opacity: 1;}
+            from {
+                transform: scale(0.9);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
         }
-        /* Cursor für klickbare Bilder ändern */
-        .hero, .section-image img, .notice-board-image img {
-            cursor: zoom-in;
-            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), filter 0.3s ease;
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.6em;
+            }
+
+            .section,
+            .notice-board-inner {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .section.reverse {
+                flex-direction: column;
+            }
+
+            .notice-board-image {
+                flex: 0 0 auto;
+                width: 100%;
+            }
+
+            .container {
+                padding: 40px 15px;
+            }
+
+            p {
+                font-size: 1em;
+                text-align: left;
+            }
         }
-        .hero:hover, .section-image img:hover, .notice-board-image img:hover {
-            filter: brightness(1.1);
+
+        @media (max-width: 480px) {
+            header {
+                padding: 20px 10px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+                letter-spacing: 2px;
+            }
+
+            .subtitle {
+                font-size: 0.9em;
+            }
+
+            .hero {
+                max-height: 400px;
+            }
+
+            .modal-content {
+                max-width: 100%;
+                max-height: 100%;
+            }
         }
     </style>
-
 </head>
+
 <body>
     <header>
         <h1>St. Aurelius</h1>
         <div class="subtitle">Private Golf Estate</div>
     </header>
 
-    <div class="hero-container">
-        <img src="images/hauptgebaeude-aussen.png" alt="Eingangstor St. Aurelius" class="hero">
-    </div>
-
-    <div class="container">
-        <div class="section" style="display: block; text-align: center; padding: 0 50px;">
-            <h2>Tradition & Exzellenz</h2>
-            <p style="text-align: center; font-size: 1.2em;">Seit unserer Gründung verkörpert das St. Aurelius Private Golf Estate höchste Exklusivität, aristokratische Tradition und sportliche Perfektion. Verborgen in den malerischen Hügeln des Rheintals, bieten wir einen einzigartigen Rückzugsort für Mitglieder, die das Außergewöhnliche suchen. St. Aurelius ist nicht nur ein Club – es ist eine Institution für Gleichgesinnte, die den Golfsport in vollendeter Diskretion und höchstem Luxus zelebrieren.</p>
+    <main>
+        <div class="hero-container">
+            <img 
+                src="images/hauptgebaeude-aussen.png" 
+                alt="Eingangstor und Hauptgebäude des St. Aurelius Private Golf Estate" 
+                class="hero"
+                loading="lazy">
         </div>
 
-        <div class="section">
-            <div class="section-text">
-                <h2>Die Golfanlage</h2>
-                <p>Ein architektonisches Meisterwerk, das sich nahtlos in die sanfte Landschaft der Hohenfelder Weinberge einfügt. Unsere Meisterschaftsanlage bietet strategisch anspruchsvolle Fairways, makellose Grüns und malerische Wasserhindernisse. Hier spielen Sie völlig ungestört in einer Kulisse, die sowohl das Auge erfreut als auch sportlich höchste Ansprüche stellt.</p>
-            </div>
-            <div class="section-image">
-                <img src="images/golfanlage-plaetze.png" alt="Golfanlage">
-            </div>
-        </div>
+        <div class="container">
+            <section style="display: block; text-align: center; padding: 0 50px;">
+                <h2>Tradition & Exzellenz</h2>
+                <p style="text-align: center; font-size: 1.2em;">
+                    Seit unserer Gründung verkörpert das St. Aurelius Private Golf Estate höchste Exklusivität, 
+                    aristokratische Tradition und sportliche Perfektion.
+                </p>
+            </section>
 
-        <div class="section reverse">
-            <div class="section-text">
-                <h2>Das Klubhaus</h2>
-                <p>Das prachtvolle Anwesen aus historischem Naturstein bildet das erhabene Herzstück unseres Estates. In den luxuriös ausgestatteten Lounges und auf den weitläufigen Terrassen pflegen unsere Mitglieder ihre Freundschaften und genießen die Ruhe nach dem Spiel. Es ist ein Ort der Begegnung, an dem der Geist der alten Schule auf modernsten Komfort trifft.</p>
-            </div>
-            <div class="section-image">
-                <img src="images/drohnenaufnahme-clubhaus.png" alt="Drohnenaufnahme Klubhaus">
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-text">
-                <h2>La Cour d'Aurelius</h2>
-                <p>Unser Restaurant "La Cour d'Aurelius" steht für Fine Dining der absoluten Spitzenklasse. Mit einem atemberaubenden Blick über die Grüns serviert unser Küchenteam exklusive Kreationen, begleitet von einer Weinkarte, die von unseren eigenen Reben bis hin zu internationalen Raritäten reicht. Ein Ort, an dem kulinarische Perfektion gefeiert wird.</p>
-            </div>
-            <div class="section-image">
-                <img src="images/restaurant-innenansicht.png" alt="Restaurant La Cour d'Aurelius">
-            </div>
-        </div>
-
-        <div class="notice-board">
-            <div class="notice-board-inner">
-                <div class="notice-board-text">
-                    <h2>Interne Bekanntmachungen</h2>
-                    <p class="date">Rückblick: 16. Juli 2026</p>
-                    <h3>Exklusives Golfturnier der "Inneren Mitglieder"</h3>
-                    <p>Wir möchten uns bei allen Beteiligten für das überaus gelungene, geschlossene Turnier unseres innersten Zirkels am 16. Juli bedanken. Um die unbedingte Diskretion, die Sicherheit und die Exklusivität dieses besonderen Traditionsturniers zu wahren, blieben das Klubhaus, die gesamte Golfanlage sowie das Restaurant "La Cour d'Aurelius" an diesem Tag für unsere regulären Mitglieder vollständig gesperrt und unzugänglich. Wir danken der gesamten Mitgliedschaft für ihr Verständnis und den Respekt gegenüber dieser tief verwurzelten Tradition unseres Hauses.</p>
+            <section class="section">
+                <div class="section-text">
+                    <h2>Die Golfanlage</h2>
+                    <p>
+                        Ein architektonisches Meisterwerk, das sich nahtlos in die sanfte Landschaft der Hohenfelder 
+                        Weinberge einfügt. Unsere Meisterschaftsanlage bietet strategisch anspruchsvolle Fairways.
+                    </p>
                 </div>
-                <div class="notice-board-image">
-                    <img src="images/innere-mitglieder.png" alt="Bild innere Mitglieder">
+                <div class="section-image">
+                    <img 
+                        src="images/golfanlage-plaetze.png" 
+                        alt="Luftaufnahme der Golfanlage mit mehreren Spielbahnen"
+                        loading="lazy">
                 </div>
-            </div>
+            </section>
+
+            <section class="section reverse">
+                <div class="section-text">
+                    <h2>Das Klubhaus</h2>
+                    <p>
+                        Das prachtvolle Anwesen aus historischem Naturstein bildet das erhabene Herzstück unseres 
+                        Estates. In den luxuriös ausgestatteten Lounges und auf den weitläufigen Terrassen pflegen 
+                        wir Exklusivität.
+                    </p>
+                </div>
+                <div class="section-image">
+                    <img 
+                        src="images/drohnenaufnahme-clubhaus.png" 
+                        alt="Drohnenaufnahme des Klubhaus-Komplexes"
+                        loading="lazy">
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="section-text">
+                    <h2>La Cour d'Aurelius</h2>
+                    <p>
+                        Unser Restaurant "La Cour d'Aurelius" steht für Fine Dining der absoluten Spitzenklasse. 
+                        Mit einem atemberaubenden Blick über die Grüns serviert unser Küchenteam exklusive Kreationen.
+                    </p>
+                </div>
+                <div class="section-image">
+                    <img 
+                        src="images/restaurant-innenansicht.png" 
+                        alt="Innenansicht des Restaurants La Cour d'Aurelius"
+                        loading="lazy">
+                </div>
+            </section>
+
+            <section class="notice-board">
+                <div class="notice-board-inner">
+                    <div class="notice-board-text">
+                        <h2>Interne Bekanntmachungen</h2>
+                        <p class="date">Rückblick: 16. Juli 2026</p>
+                        <h3>Exklusives Golfturnier der "Inneren Mitglieder"</h3>
+                        <p>
+                            Wir möchten uns bei allen Beteiligten für das überaus gelungene, geschlossene Turnier 
+                            unseres innersten Zirkels am 16. Juli bedanken. Um die unbedingte Diskretion zu gewährleisten, 
+                            bleiben Details vertraulich.
+                        </p>
+                    </div>
+                    <div class="notice-board-image">
+                        <img 
+                            src="images/innere-mitglieder.png" 
+                            alt="Gruppenbild der inneren Mitglieder beim Turnier"
+                            loading="lazy">
+                    </div>
+                </div>
+            </section>
         </div>
-    </div>
+    </main>
 
     <footer>
         <p><strong>St. Aurelius Private Golf Estate</strong></p>
@@ -258,37 +400,58 @@
         <p>&copy; 2026 St. Aurelius. Alle Rechte vorbehalten.</p>
     </footer>
 
-    <!-- Modal (Lightbox) Container -->
-    <div id="imageModal" class="modal" onclick="closeModal()">
-        <img class="modal-content" id="enlargedImg">
+    <!-- Modal for Image Lightbox -->
+    <div id="imageModal" class="modal" role="dialog" aria-label="Image viewer" aria-hidden="true">
+        <img class="modal-content" id="enlargedImg" alt="">
     </div>
 
     <script>
-        // Hole das Modal und das Bild-Element darin
-        const modal = document.getElementById("imageModal");
-        const modalImg = document.getElementById("enlargedImg");
-
-        // Finde alle Bilder, die vergrößert werden sollen
-        const images = document.querySelectorAll('.hero, .section-image img, .notice-board-image img');
-
-        // Füge jedem Bild ein Klick-Event hinzu
-        images.forEach(img => {
-            img.onclick = function() {
-                modal.style.display = "block";
-                modalImg.src = this.src; // Setze die Quelle des Modal-Bildes auf das geklickte Bild
+        // Image Modal Controller
+        class ImageModal {
+            constructor() {
+                this.modal = document.getElementById("imageModal");
+                this.modalImg = document.getElementById("enlargedImg");
+                this.init();
             }
-        });
 
-        // Funktion zum Schließen des Modals
-        function closeModal() {
-            modal.style.display = "none";
+            init() {
+                const images = document.querySelectorAll('.hero, .section-image img, .notice-board-image img');
+                images.forEach(img => {
+                    img.addEventListener('click', () => this.openModal(img));
+                });
+
+                this.modal.addEventListener('click', (e) => {
+                    if (e.target === this.modal) {
+                        this.closeModal();
+                    }
+                });
+
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === "Escape") {
+                        this.closeModal();
+                    }
+                });
+            }
+
+            openModal(img) {
+                if (!img.src) return; // Error handling
+                this.modalImg.src = img.src;
+                this.modalImg.alt = img.alt;
+                this.modal.classList.add('active');
+                this.modal.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+            }
+
+            closeModal() {
+                this.modal.classList.remove('active');
+                this.modal.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = ''; // Re-enable scrolling
+            }
         }
-        
-        // Schließen auch mit der Escape-Taste ermöglichen
-        document.addEventListener('keydown', function(event){
-            if(event.key === "Escape"){
-                closeModal();
-            }
+
+        // Initialize when DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            new ImageModal();
         });
     </script>
 </body>
